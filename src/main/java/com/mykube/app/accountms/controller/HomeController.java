@@ -23,6 +23,6 @@ public class HomeController {
 			item = new Item("Arun", 1, 1);
 		}
 		redisTemplate.opsForHash().put(KEY, item.getName(), item);
-		return "HI. Hite:"+item.getHits();
+		return "HI. Hit:"+item.getHits();
 	}
 }
