@@ -3,19 +3,20 @@ package com.mykube.app.accountms.config;
 import org.springframework.beans.factory.annotation.Configurable;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.Configuration;
 import org.springframework.data.redis.connection.RedisStandaloneConfiguration;
 import org.springframework.data.redis.connection.jedis.JedisConnectionFactory;
 import org.springframework.data.redis.core.RedisTemplate;
 
 import com.mykube.app.accountms.bean.Item;
 
-@Configurable
+@Configuration
 public class AppConfig {
 
-	@Value("${redis.hostname}")
+	@Value("${spring.redis.host}")
     private String redisHostName;
 
-    @Value("${redis.port}")
+    @Value("${spring.redis.port}")
     private int redisPort;
     
 	@Bean

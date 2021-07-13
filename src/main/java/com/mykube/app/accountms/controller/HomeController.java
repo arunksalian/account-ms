@@ -1,5 +1,7 @@
 package com.mykube.app.accountms.controller;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -13,6 +15,8 @@ public class HomeController {
 	@Autowired
 	private RedisTemplate<String, Item> redisTemplate;
 	public static final String KEY = "ITEM";
+	
+	private static final Logger LOGGER = LoggerFactory.getLogger(HomeController.class);
 	@GetMapping("/home")
 	public String getHome () {
 		Item item = null;
@@ -22,7 +26,7 @@ public class HomeController {
 		} else {
 			item = new Item("Arun", 1, 1);
 		}
-		redisTemplate.opsForHash().put(KEY, item.getName(), item);
+		redisTemplate.opsForHash().put(KEY, item.getNum(), item);
 		return "HI. Hit:"+item.getHits();
 	}
 }

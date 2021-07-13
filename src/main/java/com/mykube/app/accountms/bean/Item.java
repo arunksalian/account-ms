@@ -17,6 +17,7 @@ public class Item implements Serializable {
 		super();
 		this.name = name;
 		this.num = num;
+		this.hits = hits;
 	}
 	public int getHits() {
 		return hits;
